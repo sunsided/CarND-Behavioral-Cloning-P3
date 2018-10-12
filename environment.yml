@@ -1,16 +1,11 @@
 name: carnd-term1
 channels:
-  - menpo
   - anaconda
+  - menpo
   - conda-forge
   - defaults
 dependencies:
   - blas=1.0=mkl
-  - ca-certificates=2018.03.07=0
-  - certifi=2018.4.16=py35_0
-  - cudatoolkit=9.0=h13b8566_0
-  - cudnn=7.1.2=cuda9.0_0
-  - openssl=1.0.2o=h20670df_0
   - asn1crypto=0.24.0=py_1
   - backcall=0.1.0=py_0
   - bleach=2.1.3=py_0
@@ -32,7 +27,6 @@ dependencies:
   - gmp=6.1.2=hfc679d8_0
   - graphite2=1.3.11=hfc679d8_0
   - greenlet=0.4.13=py35_0
-  - h5py=2.8.0=py35hb794570_1
   - hdf5=1.10.2=0
   - html5lib=1.0.1=py_0
   - icu=58.2=hfc679d8_0
@@ -113,13 +107,16 @@ dependencies:
   - zlib=1.2.11=h470a237_3
   - _nb_ext_conf=0.4.0=py35_1
   - anaconda-client=1.6.14=py35_0
+  - ca-certificates=2018.03.07=0
   - cairo=1.12.18=6
+  - certifi=2018.4.16=py35_0
   - chardet=3.0.4=py35hb6e9ddf_1
   - clyent=1.2.2=py35h491ffcb_1
   - cytoolz=0.9.0.1=py35h14c3975_0
   - dask=0.18.1=py35_0
   - fontconfig=2.11.1=6
   - freetype=2.5.5=2
+  - h5py=2.8.0=py35ha1f6525_0
   - harfbuzz=0.9.39=1
   - heapdict=1.0.0=py35_2
   - intel-openmp=2018.0.3=0
@@ -136,6 +133,7 @@ dependencies:
   - nbpresent=3.0.2=py35h9c03491_1
   - ncurses=6.1=hf484d3e_0
   - numpy=1.11.3=py35h3dfced4_4
+  - openssl=1.0.2o=h20670df_0
   - packaging=17.1=py35_0
   - pango=1.39.0=0
   - partd=0.3.8=py35h68187f2_0
@@ -169,8 +167,6 @@ dependencies:
     - jupyter-latex-envs==1.4.4
     - jupyter-nbextensions-configurator==0.4.0
     - keras==2.2.4
-    - keras-applications==1.0.6
-    - keras-preprocessing==1.0.5
     - lxml==4.2.3
     - markdown==3.0.1
     - moviepy==0.2.3.5
@@ -184,5 +180,4 @@ dependencies:
     - theano==1.0.2
     - tqdm==4.23.4
     - uno==0.3.3
-prefix: /home/markus/anaconda3/envs/carnd-term1
 
