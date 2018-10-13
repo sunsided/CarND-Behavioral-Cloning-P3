@@ -219,11 +219,9 @@ def nvidia_model(learning_rate: float, decay: float=0):
 model = nvidia_model(LEARNING_RATE)
 print(model.summary())
 
-
 # We can now create the training and validation data generators.
 training_generator   = DataGenerator(df_train, batch_size=BATCH_SIZE)
 validation_generator = DataGenerator(df_valid, batch_size=BATCH_SIZE)
-
 
 # We'll be using a `ModelCheckpoint` to save a model whenever the validation loss decreases.
 # An issue exists for Keras 2.2.4 that prevents writing checkpoint files when `ModelCheckpoint` is used with
@@ -233,12 +231,10 @@ CHECKPOINT_PATH = os.path.join(MODEL_PATH, 'nvidia.{epoch:02d}-{val_loss:.4f}.h5
 checkpoint = ModelCheckpoint(CHECKPOINT_PATH, monitor = 'val_loss', verbose=1,
                              save_best_only=True, mode='min')
 
-
 # In addition, early stopping will be used to terminate training if the validation loss
 # doesn't improve for multiple epochs.
 early_stopping = EarlyStopping(monitor='val_loss', patience=20, verbose=1,
                                mode='min', restore_best_weights=False)
-
 
 # We can now run the training.
 hist = model.fit_generator(generator=training_generator,
@@ -262,7 +258,7 @@ hist = model.fit_generator(generator=training_generator,
 # destination angle as determined by the center camera, due to trigonometry, we need to add correction factor to the
 # angle whenever we're using either the left or right image, positive and negative respectively. Since no reference
 # values for distances are given, we'll be simply using an arbitrarily selected value of e.g. `0.2`.
-#
+
 # To prevent overfitting, a zero-mean gaussian noise is added to the recorded steering angles
 # during training additionally.
 class AugmentingDataGenerator(DataGenerator):
