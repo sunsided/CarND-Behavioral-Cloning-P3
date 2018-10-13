@@ -125,6 +125,7 @@ dependencies:
   - libgfortran=3.0.0=1
   - libgfortran-ng=7.2.0=hdf63c60_3
   - libstdcxx-ng=7.2.0=hdf63c60_3
+  - llvmlite=0.23.2=py35hdbcaa40_0
   - locket=0.2.0=py35h170bc82_1
   - matplotlib=1.5.1=np111py35_0
   - mkl=2018.0.3=1
@@ -132,6 +133,7 @@ dependencies:
   - nb_conda=2.2.1=py35hccc8299_0
   - nbpresent=3.0.2=py35h9c03491_1
   - ncurses=6.1=hf484d3e_0
+  - numba=0.38.1=py35h04863e7_0
   - numpy=1.11.3=py35h3dfced4_4
   - openssl=1.0.2o=h20670df_0
   - packaging=17.1=py35_0
@@ -167,6 +169,8 @@ dependencies:
     - jupyter-latex-envs==1.4.4
     - jupyter-nbextensions-configurator==0.4.0
     - keras==2.2.4
+    - keras-applications==1.0.6
+    - keras-preprocessing==1.0.5
     - lxml==4.2.3
     - markdown==3.0.1
     - moviepy==0.2.3.5
