@@ -7,7 +7,6 @@ import PIL.Image as Image
 import keras
 import numpy as np
 import pandas as pd
-from PIL.Image import Image
 from sklearn.model_selection import train_test_split
 from sklearn.utils import shuffle
 

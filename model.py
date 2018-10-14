@@ -10,7 +10,6 @@ from typing import Tuple
 import PIL.Image as Image
 import numpy as np
 import pandas as pd
-from PIL.Image import Image
 from keras import backend as K
 from keras.callbacks import ModelCheckpoint, EarlyStopping
 from keras.layers import Flatten, Dense, Lambda, Cropping2D, SeparableConv2D, Dropout, PReLU
