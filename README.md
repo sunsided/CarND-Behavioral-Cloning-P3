@@ -306,9 +306,9 @@ Overfitting still doesn't seem to be an issue.
 
 The model is stored as 
 
-- `models/nvidia-aug.56-0.0317.h5` 
+- `models/nvidia-aug.56-0.0317.h5`. 
 
-respectively. A video of the models performing successfully on the training track can be found at
+A video of the model performing successfully on the training track can be found at
 
 - [`video/nvidia-aug.56-0.0317.mp4`](video/nvidia-aug.56-0.0317.mp4)
 
