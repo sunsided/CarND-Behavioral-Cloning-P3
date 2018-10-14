@@ -1,6 +1,8 @@
 dataset/
 dataset
 models/
+output*.png
+notebook.tex
 
 # Created by .ignore support plugin (hsz.mobi)
 ### Python template
