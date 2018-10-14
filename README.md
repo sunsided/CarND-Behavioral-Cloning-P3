@@ -194,6 +194,8 @@ learn how to _not_ drive.
 
 ![Histogram of speed values](examples/speed-values.png)
 
+### Baseline model implementation
+
 As a baseline model, the architecture suggested by NVIDIA in the [End to End Learning for Self-Driving Cars](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf))
 paper was implemented:
  
@@ -272,7 +274,7 @@ A videos of the models performing successfully on the training track can be foun
 
 - [`video/nvidia.48-0.0221.mp4`](video/nvidia.48-0.0221.mp4).
 
-#### Introducing data augmentation
+### Adding data augmentation
 
 Using the same model, data augmentation was added by introducing:
 
@@ -323,7 +325,7 @@ which works better with sound enabled, I'd argue).
 
 <a href="https://www.youtube.com/watch?v=sxXvtvNnhzQ"><img src="examples/nvidia-aug-2.png" /></a>
 
-#### Implementing a custom model
+### Custom model implementation
 
 The project required the use of countermeasures to overfitting, such as dropout or regularization. Because
 the network architecture had to be changed anyway, I factored in additional changes:
