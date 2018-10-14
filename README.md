@@ -263,8 +263,8 @@ until the validation accuracy didn't improve for 20 epochs.
 
 ![Baseline model training and validation loss](examples/training_validation_loss_baseline.png)
 
-Given that the validation loss didn't seem to _increase_, it appears that further training, possibly using a smaller
-learning rate or rate decay, would have improved the results further.
+Given that the validation loss didn't seem to _increase_, it appears that longer training, possibly using a smaller
+learning rate or rate decay, could have improved the results further.
 
 The model is stored as 
 
