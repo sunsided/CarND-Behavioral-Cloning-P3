@@ -19,6 +19,10 @@ from training_data import DATASET_PATH, load_training_data, DataGenerator
 
 MODEL_PATH = 'models'
 
+BATCH_SIZE = 128
+EPOCHS = 100
+LEARNING_RATE = 1e-3
+
 # Load the training, validation and test data
 df_train, df_test, df_valid = load_training_data()
 
@@ -32,40 +36,6 @@ steering_std = df_train['Steering Angle'].std()
 # Likewise, the bottom part of the image always contains the hood of the car and is thus not relevant to steering.
 CROP_TOP_BIG = 75
 CROP_BOTTOM_BIG = 22
-
-# The core changes we'll be doing to the NVIDIA network are the following:
-#
-# - The original image size is used, i.e. resizing is removed,
-# - 2D convolutions are replaced with depthwise separable 2D convolutions,
-# - ReLU activations are replaced with Parametric ReLU, and
-# - Dropout is added before the first fully connected layer.
-#
-# The removal of the resizing step is done purely to improve processing speed; at the same time, the introduction of
-# depthwise separable convolutions should allow for some reduction of parameters as well. Much more importantly, using
-# a depthwise separable convolution in the input layer follows the intuition, that grayscale intensity matters much
-# more to lane detection that color. By learning filters individually for the luminance (Y) and chrominance (U and V)
-# channels, it should be possible to focus the training on the more important channels rather than trying to use them
-# simultaneously. Separable convolutions are kept for later layers because of the same reason; a rather efficient class
-# of neural networks designed for mobile use (such as embedded systems) using separable convolutions are
-# MobileNets (https://arxiv.org/abs/1704.04861).
-#
-# ReLU activations drop all negative activations, effectively cancelling out their gradient, possibly leading to "dead"
-# neurons during training (when a neuron's gradient is zero, no learning can happen ever again). While this allows for
-# pruning of the network, it possibly throws aways computational capabilities of the architecture. Hence,
-# Parametric ReLU units are used instead: Functioning like Leaky ReLU, a class of activation functions that "leaks"
-# negative activations by using a small coefficient on them, Parametric ReLUs allow for learning the influence of
-# negative activations as well at the cost of one extra trainable parameter per activation function. Nowadays,
-# activation functions such as ELU and SELU have proven to be more efficient in terms of training and inference quality;
-# they do rely on exponential functions though, and since the goal is to have a network that should run as fast as
-# possible on an embedded device, I decided not to use them.
-#
-# Lastly, dropout is applied exactly once. Since dropout randomly "drops" connections during training, the network has
-# to learn redundancy. When repeatedly using dropouts in subsequent layers, this only becomes worse. Again, pruning may
-# mitigate this effect by simply removing "identical" neurons, but this is beyond the scope of this project, more than
-# one instance of dropout in the network was deemed enough.
-BATCH_SIZE = 128
-EPOCHS = 100
-LEARNING_RATE = 1e-3
 
 
 # The paper specifies image input is converted to YUV prior to processing.
@@ -81,6 +51,12 @@ def image_resize(x):
     return K.tf.image.resize_images(x, (105, 200))
 
 
+# The core changes we'll be doing to the NVIDIA network are the following:
+#
+# - The original image size is used, i.e. resizing is removed,
+# - 2D convolutions are replaced with depthwise separable 2D convolutions,
+# - ReLU activations are replaced with Parametric ReLU, and
+# - Dropout is added before the first fully connected layer.
 def custom_model(learning_rate: float, decay: float = 0, dropout_rate: float = 0.3):
     model = Sequential()
 

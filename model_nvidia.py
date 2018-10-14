@@ -20,6 +20,10 @@ from training_data import DATASET_PATH, load_training_data, DataGenerator
 
 MODEL_PATH = 'models'
 
+BATCH_SIZE = 128
+EPOCHS = 100
+LEARNING_RATE = 1e-3
+
 # Load the training, validation and test data
 df_train, df_test, df_valid = load_training_data()
 
@@ -46,9 +50,6 @@ CROP_BOTTOM = 15
 # As a baseline, we're going to implement the model suggested by the End to End Learning for Self-Driving Cars paper
 # (https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf)
 # published by NVIDIA.
-BATCH_SIZE = 128
-EPOCHS = 100
-LEARNING_RATE = 1e-3
 
 
 # The paper specifies image input is converted to YUV prior to processing.
