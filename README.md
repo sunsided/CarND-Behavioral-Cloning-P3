@@ -196,7 +196,7 @@ learn how to _not_ drive.
 
 ### Baseline model implementation
 
-As a baseline model, the architecture suggested by NVIDIA in the [End to End Learning for Self-Driving Cars](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf))
+As a baseline model, the architecture suggested by NVIDIA in the [End to End Learning for Self-Driving Cars](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf)
 paper was implemented:
  
 ![End to End Learning for Self-Driving Cars](examples/nvidia-model.jpg)
